@@ -1,0 +1,28 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+	<a class="navbar-brand" href="#">MovieCruiser</a>
+	<ul class="nav navbar-nav mr-auto">
+		<li class="nav-item active">
+			<a class="nav-link" [routerLink]="['/home']" [routerLinkActive]="['active']" >Home <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" [routerLink]="['/watchlist']" [routerLinkActive]="['active']">Favourites</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href = "#" >Contact</a>
+		</li>
+	</ul>
+	<input #movieName type = "text" (keyup.enter) = search(movieName.value) />
+	<button (click) = search(movieName.value)> search </button>
+</nav>
+
+<div class = "body">
+	<router-outlet></router-outlet>
+</div>
+
+<footer class="footer">
+	<div class="container">
+		<span class="text-muted">
+		Made with <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>️ and  angular
+		</span>
+		</div>
+</footer>  

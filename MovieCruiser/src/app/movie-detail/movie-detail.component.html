@@ -1,0 +1,71 @@
+<div class="container" *ngIf="movie">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="text-center">{{movie.title}}</h2>
+      </div>
+      <br>
+      <div class="panel-body">
+        <div class="row">
+  
+          <div class="col-md-6">
+            <img *ngIf="movie.poster_path" class="img-thumbnail img-responsive" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+            <img *ngIf="!movie.poster_path" class="img-thumbnail img-responsive" src="http://ddbu.billiardport.com/img/posters/no_poster_available.jpg">
+          </div>
+  
+          <div class="col-md-6">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <strong>Original Title:</strong> {{movie.original_title}}
+              </li>
+  
+              <li class="list-group-item">
+                  <strong>Cast:</strong> <span *ngFor="let gen of cast">{{gen.name}}, </span>
+                </li>
+              <li class="list-group-item">
+                <strong>Overview:</strong> {{movie.overview}}
+              </li>
+              <li class="list-group-item">
+                <strong>Budget:</strong> {{movie.budget|currency:'USD':true}}
+              </li>
+              <li class="list-group-item">
+                <strong>Genres:</strong> <span *ngFor="let gen of movie.genres">{{gen.name}} </span>
+              </li>
+  
+              <li class="list-group-item">
+                <strong>Release Date:</strong> {{movie.release_date|date:'longDate'}}
+              </li>
+              <li class="list-group-item">
+                <strong>Rating:</strong> {{movie.vote_average}}
+              </li>
+              <li class="list-group-item">
+                <strong>Rating count:</strong> {{movie.vote_count}}
+              </li>
+            </ul>
+  
+            <hr />
+						<button type="button" class="btn btn-info btn-lg  btn-block" (click) = addToWatchlist(movie)>Add to Watchlist</button>
+            <br>
+            <a *ngIf="movie.homepage" href="{{movie.homepage}}" target="_blank" class="btn btn-primary btn-lg btn-block">Movie Homepage</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <h3>Recommendations based on the movie</h3>
+    <div class="row card-group">
+        <div class="col-4"  *ngFor="let movies of recommended" >
+            <div class="card text-center">
+                <a (click)= goToDetail(movies.id)>
+                  <div class="media">
+                      <img class="d-flex mr-3 img-responsive" src="https://image.tmdb.org/t/p/w300/{{movies.poster_path}}" alt="{{movies.title}}" height = 200px width = 150px>
+                      <div class="media-body">
+                        <h5 class="mt-0">{{movies.title}} ({{movies.release_date| date:'y'}})</h5>
+                        <p>Rating: {{movies.vote_average}} ({{movies.vote_count}})</p>
+                      </div>
+                  </div>
+                </a>
+            </div>
+        </div>
+    </div>  
+  </div>
+  

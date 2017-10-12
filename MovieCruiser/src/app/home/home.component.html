@@ -1,0 +1,13 @@
+<div class="container" *ngIf="nowPlayingMovies.length > 0"> 
+    
+  <h1 class="text-center"> Now Trending </h1><br>
+  <div class="row card-group">
+    <div class="col-4"  *ngFor="let movie of nowPlayingMovies" >
+        <div class="card text-center">
+              <div class="media">
+                  <img class="d-flex mr-3 img-responsive" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="{{movie.title}}">
+              </div>
+        </div>
+    </div>
+  
+</div>

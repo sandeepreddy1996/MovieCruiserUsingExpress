@@ -1,0 +1,33 @@
+<div class = "container">
+  <div class = "row">
+    <div class="media col-sm-4" *ngFor = "let movie of favorites">
+      <img height = 200px width = 100px  class="d-flex mr-3 responsive" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="Generic placeholder image">
+      <div class="media-body">
+        <h5 class="mt-0">{{movie.title}}</h5>
+        rating: {{movie.vote_average}} <br/>
+        <p> Comments: {{movie.userComments}} </p>
+        <button type="button" class="btn btn-primary update" (click) = removeFromFav(movie.id)> Remove </button>
+        <button type="button" class="btn btn-primary remove" data-toggle="modal" data-target="#exampleModal" (click) = "getId(movie.id)"> Update </button>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New Comment</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <textarea rows = "3" #newComments></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click) = "updateComments(newComments.value)">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

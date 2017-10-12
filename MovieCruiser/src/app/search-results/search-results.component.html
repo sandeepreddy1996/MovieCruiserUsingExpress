@@ -1,0 +1,13 @@
+<div class = "container">
+  <div class = "row">
+    <div class="media col-sm-4" *ngFor = "let movie of this.searchService.result">
+      <img height = 200px width = 100px  class="d-flex mr-3 responsive" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="Generic placeholder image">
+      <div class="media-body">
+        <h5 class="mt-0">{{movie.title}}</h5>
+        rating: {{movie.vote_average}} <br/>
+        <button type="button" class="btn btn-dark" (click) = getMovieDetail(movie.id)> About the movie</button>
+      </div>
+    </div>
+  </div>
+</div>
+

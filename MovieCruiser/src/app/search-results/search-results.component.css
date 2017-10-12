@@ -1,0 +1,19 @@
+.media{
+    margin-bottom: 5px;         
+    width: 250px;
+}
+
+.btn{
+    margin-top: 5px;
+    text-align: center;
+    cursor: pointer
+}
+
+.card-text{
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+h3{
+    text-align: center;
+}
