@@ -1,4 +1,4 @@
-<div class="container" *ngIf="movie">
+<!-- <div class="container" *ngIf="movie">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h2 class="text-center">{{movie.title}}</h2>
@@ -67,5 +67,49 @@
             </div>
         </div>
     </div>  
-  </div>
-  
+</div> -->
+
+<mat-grid-list cols="2" *ngIf="movie">
+	<h2 class="text-center">{{movie.title}}</h2>
+    <mat-grid-tile>
+		<img *ngIf="movie.poster_path" class="img-thumbnail img-responsive" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+        <img *ngIf="!movie.poster_path" class="img-thumbnail img-responsive" src="http://ddbu.billiardport.com/img/posters/no_poster_available.jpg">	
+    </mat-grid-tile>
+    <mat-grid-tile>
+		<mat-list>
+			<mat-list-item>
+				<p mat-line> <strong>Original Title:</strong> {{movie.original_title}} </p>
+			</mat-list-item>
+			<mat-divider></mat-divider>
+			<mat-list-item>
+					<p mat-line> <strong>Cast: </strong> <span *ngFor="let gen of cast">{{gen.name}}, </span> </p>
+			</mat-list-item>
+			<mat-divider></mat-divider>
+			<mat-list-item>
+					<p mat-line> <strong>Budget:</strong> {{movie.budget|currency:'USD':true}} </p>
+			</mat-list-item>
+			<mat-divider></mat-divider>
+			<mat-list-item>
+				<p mat-line> <strong>Overview:</strong> {{movie.overview}} </p>
+			</mat-list-item>
+			<mat-divider></mat-divider>
+			<mat-list-item>
+				<p mat-line> <strong>Genres: </strong> <span *ngFor="let gen of movie.genres">{{gen.name}}, </span> </p>
+			</mat-list-item>
+			<mat-divider></mat-divider>
+			<mat-list-item>
+				<p mat-line>  <strong>Release Date: </strong> {{movie.release_date|date:'longDate'}} </p>
+			</mat-list-item>
+			<mat-divider></mat-divider>
+			<mat-list-item>
+				<p mat-line> <strong>Rating: </strong> {{movie.vote_average}} </p>
+			</mat-list-item>
+			<mat-divider></mat-divider>
+			<mat-list-item>
+					<p mat-line><strong>Rating count: </strong> {{movie.vote_count}} </p>
+			</mat-list-item>
+			<mat-divider></mat-divider>
+			<button mat-raised-button color="primary" (click) = addToWatchlist(movie) >Add To Watchlist</button>
+		</mat-list>
+	</mat-grid-tile>
+</mat-grid-list>  

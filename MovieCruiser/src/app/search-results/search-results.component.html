@@ -1,4 +1,4 @@
-<div class = "container">
+<!-- <div class = "container">
   <div class = "row">
     <div class="media col-sm-4" *ngFor = "let movie of this.searchService.result">
       <img height = 200px width = 100px  class="d-flex mr-3 responsive" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="Generic placeholder image">
@@ -9,5 +9,20 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+<mat-grid-list cols="3">
+    <mat-grid-tile *ngFor="let movie of this.searchService.result">
+        <mat-card class = "card">
+            <mat-card-header>
+              	<mat-card-title> <b> {{movie.title}} </b> </mat-card-title>
+              	<mat-card-subtitle>rating: {{movie.vote_average}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image width = 150px height = 250px src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="Generic placeholder image">
+            <mat-card-actions>
+              	<button mat-raised-button color = "primary" (click) = getMovieDetail(movie.id)>More about the movie</button>
+            </mat-card-actions>
+          </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
 

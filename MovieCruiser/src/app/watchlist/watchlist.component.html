@@ -31,3 +31,19 @@
     </div>
   </div>
 </div>
+
+<!-- <mat-grid-list cols="3">
+    <mat-grid-tile *ngFor="let movie of favorites">
+        <mat-card class = "card">
+            <mat-card-header>
+              	<mat-card-title> <b> {{movie.title}} </b> </mat-card-title>
+              	<mat-card-subtitle>Comments: {{movie.userComments}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image width = 150px height = 250px src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="Generic placeholder image">
+            <mat-card-actions>
+                <button mat-raised-button color = "primary" (click) = removeFromFav(movie.id)>Remove</button>
+                <button mat-raised-button color = "primary" (click)="getId(movie.id);openDialog()">Update</button>
+            </mat-card-actions>
+          </mat-card>
+    </mat-grid-tile>
+</mat-grid-list> -->

@@ -1,4 +1,21 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+<mat-toolbar color = "primary" class = "header">
+	<span>MovieCruiser</span>
+	<span class = "home">
+		<a class = "link" [routerLink]="['/home']" [routerLinkActive]="['active']"> Home </a>
+	</span>
+	<span class = "example-fill-remaining-space"></span>
+	<span >
+		<a class = "link" [routerLink]="['/watchlist']" [routerLinkActive]="['active']"> Favorites </a>
+	</span>
+</mat-toolbar>
+
+
+<mat-form-field class="example-full-width">
+	<input #movieName matInput placeholder="Search by movie name">
+</mat-form-field>
+<button class = "button" mat-raised-button color="primary" (click) = search(movieName.value)>Click here to Search</button>
+
+<!-- <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
 	<a class="navbar-brand" href="#">MovieCruiser</a>
 	<ul class="nav navbar-nav mr-auto">
 		<li class="nav-item active">
@@ -13,16 +30,14 @@
 	</ul>
 	<input #movieName type = "text" (keyup.enter) = search(movieName.value) />
 	<button (click) = search(movieName.value)> search </button>
-</nav>
+</nav> -->
 
 <div class = "body">
 	<router-outlet></router-outlet>
 </div>
 
-<footer class="footer">
-	<div class="container">
-		<span class="text-muted">
-		Made with <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>️ and  angular
-		</span>
-		</div>
-</footer>  
+<mat-toolbar color = "primary" class="footer">
+	<span>
+		Made with ️love and angular
+	</span>
+</mat-toolbar>  
